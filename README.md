@@ -1,4 +1,4 @@
-[![logo](https://raw.githubusercontent.com/michaelbaudino/nginx-letsencrypt-reverse-proxy/master/logo.svg)](https://github.com/michaelbaudino/nginx-letsencrypt-reverse-proxy)
+[![logo](https://rawgit.com/michaelbaudino/nginx-letsencrypt-reverse-proxy/master/logo.svg)](https://github.com/michaelbaudino/nginx-letsencrypt-reverse-proxy)
 
 # Nginx + Let's Encrypt reverse proxy as a Docker container
 
