@@ -1,0 +1,10 @@
+#!/bin/bash
+
+if [ -z "${BACKEND}" ]; then
+  echo "Error: BACKEND env var must be defined"
+  exit 1
+fi
+
+sed -i "s#{{BACKEND}}#${BACKEND}#" /etc/nginx/sites-available/*
+
+exec "$@"

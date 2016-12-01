@@ -1,0 +1,22 @@
+#!/bin/bash
+
+function disable_nginx {
+  echo "Disable Nginx..."
+  rm -f /etc/nginx/sites-enabled/force_https
+  kill -HUP $(pidof nginx)
+  sleep 2
+}
+
+function enable_nginx {
+  echo "Enable Nginx..."
+  ln -s /etc/nginx/sites-available/force_https /etc/nginx/sites-enabled/
+  kill -HUP $(pidof nginx)
+  sleep 2
+}
+
+
+# Main script
+
+disable_nginx
+letsencrypt renew --agree-tos $@
+enable_nginx

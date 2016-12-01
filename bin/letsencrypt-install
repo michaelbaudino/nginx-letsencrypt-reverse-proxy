@@ -1,0 +1,24 @@
+#!/bin/bash
+
+function create_main_symlink {
+  local domain=$(ls -t /etc/letsencrypt/live/ | head -1)
+  ln -s /etc/letsencrypt/live/{$domain,main}
+}
+
+# Checking existing certs
+if [ -L /etc/letsencrypt/live/main ]; then
+  echo -n "Some keys & certificates already exist. Overwrite? [y/N]"
+  read overwrite
+  if [ "$overwrite" = "y" ]; then
+    rm -rf /etc/letsencrypt/*
+  else
+    exit 1
+  fi
+fi
+
+
+# Main
+
+echo "Requesting certs from Let's Encrypt..."
+letsencrypt certonly --standalone --non-interactive --agree-tos --standalone-supported-challenges http-01 $@
+create_main_symlink
