@@ -4,13 +4,15 @@
 [![Docker Pulls](https://img.shields.io/docker/pulls/michaelbaudino/nginx-letsencrypt-reverse-proxy.svg?style=flat-square)](https://hub.docker.com/r/michaelbaudino/nginx-letsencrypt-reverse-proxy/)
 [![Docker Automated build](https://img.shields.io/docker/automated/michaelbaudino/nginx-letsencrypt-reverse-proxy.svg?style=flat-square)](https://hub.docker.com/r/michaelbaudino/nginx-letsencrypt-reverse-proxy/)
 
-Simple Docker container with Nginx configured to force HTTPS (thanks to Let's Encrypt) to any given HTTP backend server (configured via the `$BACKEND` environment variable).
+Easy-to-use Docker container with Nginx configured to force HTTPS (thanks to Let's Encrypt) to any given HTTP backend server (configured via the `$BACKEND` environment variable).
 
 ## Setup
 
 Before starting an instance of this container, you need to install Let's Encrypt certificates:
 ```
-docker run -p 80:80 michaelbaudino/nginx-letsencrypt-reverse-proxy letsencrypt-install --domain <example.com> --email <root@example.com>
+docker run -p 80:80 -v letsencrypt-data:/etc/letsencrypt/ \
+  michaelbaudino/nginx-letsencrypt-reverse-proxy \
+  letsencrypt-install --domain <example.com> --email <root@example.com>
 ```
 
 :information_source: Port 80 must not be already bound by another process/server and must be accessible from the outside world for this procedure to work.
