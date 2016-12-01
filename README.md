@@ -13,7 +13,7 @@ docker run -p 80:80 michaelbaudino/nginx-letsencrypt-reverse-proxy letsencrypt-i
 
 The `--staging` switch can be appended for testing purposes: it retrieves certificates from the staging Let's Encrypt server to avoid reaching the production server rate limit.
 
-Any valid `letsencrypt` switches can actually been appended to this command: they will be passed as is to `letsencrypt`. Check out [documentation](https://certbot.eff.org/docs/using.html) for more details.
+Any valid `letsencrypt` switches can actually been appended to this command: they will be passed as is to `letsencrypt`. Check out [`letsencrypt` documentation](https://certbot.eff.org/docs/using.html) for more details.
 
 ## Usage
 
