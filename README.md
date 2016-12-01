@@ -1,4 +1,10 @@
-# Nginx + Let's Encrypt reverse proxy
+[![logo](https://raw.githubusercontent.com/michaelbaudino/nginx-letsencrypt-reverse-proxy/master/logo.png)](https://github.com/michaelbaudino/nginx-letsencrypt-reverse-proxy)
+
+# Nginx + Let's Encrypt reverse proxy as a Docker container
+
+[![Docker Automated build](https://img.shields.io/docker/automated/michaelbaudino/nginx-letsencrypt-reverse-proxy.svg?style=flat-square)](https://hub.docker.com/r/michaelbaudino/nginx-letsencrypt-reverse-proxy/)
+[![Docker Stars](https://img.shields.io/docker/stars/michaelbaudino/nginx-letsencrypt-reverse-proxy.svg?style=flat-square)](https://hub.docker.com/r/michaelbaudino/nginx-letsencrypt-reverse-proxy/)
+[![Docker Pulls](https://img.shields.io/docker/pulls/michaelbaudino/nginx-letsencrypt-reverse-proxy.svg?style=flat-square)](https://hub.docker.com/r/michaelbaudino/nginx-letsencrypt-reverse-proxy/)
 
 Simple Docker container with Nginx configured to force HTTPS (thanks to Let's Encrypt) to any given HTTP backend server (configured via the `$BACKEND` environment variable).
 
@@ -75,4 +81,10 @@ docker-compose exec nginx letsencrypt-renew [--staging] [--force-renewal]
 1. Clone this repository
 2. Do your changes
 3. Build with `docker build .`
-4. If other people might benefit your changes, please create a pull request
+4. If other people might benefit your changes, please submit a pull request
+
+# License
+
+This code is distributed under the MIT license terms (see [LICENSE.md](https://github.com/michaelbaudino/nginx-letsencrypt-reverse-proxy/blob/master/LICENSE.md)).
+
+Logos concatenated in [logo.svg](https://github.com/michaelbaudino/nginx-letsencrypt-reverse-proxy/blob/master/logo.svg) are trademarks of their respective owners ([Docker Inc.](https://www.docker.com/company), [Nginx Inc.](https://www.nginx.com/company/) and [Internet Security Research Group](https://letsencrypt.org/)).
