@@ -1,10 +1,10 @@
-[![logo](https://raw.githubusercontent.com/michaelbaudino/nginx-letsencrypt-reverse-proxy/master/logo.png)](https://github.com/michaelbaudino/nginx-letsencrypt-reverse-proxy)
+[![logo](https://raw.githubusercontent.com/michaelbaudino/nginx-letsencrypt-reverse-proxy/master/logo.svg)](https://github.com/michaelbaudino/nginx-letsencrypt-reverse-proxy)
 
 # Nginx + Let's Encrypt reverse proxy as a Docker container
 
-[![Docker Automated build](https://img.shields.io/docker/automated/michaelbaudino/nginx-letsencrypt-reverse-proxy.svg?style=flat-square)](https://hub.docker.com/r/michaelbaudino/nginx-letsencrypt-reverse-proxy/)
 [![Docker Stars](https://img.shields.io/docker/stars/michaelbaudino/nginx-letsencrypt-reverse-proxy.svg?style=flat-square)](https://hub.docker.com/r/michaelbaudino/nginx-letsencrypt-reverse-proxy/)
 [![Docker Pulls](https://img.shields.io/docker/pulls/michaelbaudino/nginx-letsencrypt-reverse-proxy.svg?style=flat-square)](https://hub.docker.com/r/michaelbaudino/nginx-letsencrypt-reverse-proxy/)
+[![Docker Automated build](https://img.shields.io/docker/automated/michaelbaudino/nginx-letsencrypt-reverse-proxy.svg?style=flat-square)](https://hub.docker.com/r/michaelbaudino/nginx-letsencrypt-reverse-proxy/)
 
 Simple Docker container with Nginx configured to force HTTPS (thanks to Let's Encrypt) to any given HTTP backend server (configured via the `$BACKEND` environment variable).
 
