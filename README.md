@@ -1,7 +1,5 @@
 [![logo](https://rawgit.com/michaelbaudino/nginx-letsencrypt-reverse-proxy/master/logo.svg)](https://github.com/michaelbaudino/nginx-letsencrypt-reverse-proxy)
 
-# Nginx + Let's Encrypt reverse proxy as a Docker container
-
 [![Docker Stars](https://img.shields.io/docker/stars/michaelbaudino/nginx-letsencrypt-reverse-proxy.svg?style=flat-square)](https://hub.docker.com/r/michaelbaudino/nginx-letsencrypt-reverse-proxy/)
 [![Docker Pulls](https://img.shields.io/docker/pulls/michaelbaudino/nginx-letsencrypt-reverse-proxy.svg?style=flat-square)](https://hub.docker.com/r/michaelbaudino/nginx-letsencrypt-reverse-proxy/)
 [![Docker Automated build](https://img.shields.io/docker/automated/michaelbaudino/nginx-letsencrypt-reverse-proxy.svg?style=flat-square)](https://hub.docker.com/r/michaelbaudino/nginx-letsencrypt-reverse-proxy/)
