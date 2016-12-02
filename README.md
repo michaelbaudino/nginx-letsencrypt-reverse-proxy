@@ -17,7 +17,7 @@ docker run -p 80:80 -v letsencrypt-data:/etc/letsencrypt/ \
   letsencrypt-install --domain <example.com> --email <root@example.com>
 ```
 
-:information_source: Port 80 must not be already bound by another process/server and must be accessible from the outside world for this procedure to work.
+> :information_source: Port 80 must not be already bound by another process/server and must be accessible from the outside world for this procedure to work.
 
 ### Run
 
@@ -30,7 +30,7 @@ Where `<backend_url>` should be replaced by your application address [in Nginx f
 
 > :bulb: If you'd rather start an instance running in the background, just add the `-d` switch (and eventually name your instance using the `--name` switch for easier later use).
 
-> :bulb: Nginx logs are available using the [`docker logs` command](https://docs.docker.com/engine/reference/commandline/logs/):
+> :bulb: Nginx logs are available using the [`docker logs` command](https://docs.docker.com/engine/reference/commandline/logs/).
 
 ### Renew
 
@@ -69,18 +69,21 @@ services:
 
 ### Setup
 
-Before starting an instance of this container, you need to install Let's Encrypt certificates ():
+Before starting an instance of this container, you need to install Let's Encrypt certificates:
 ```
 docker-compose run nginx letsencrypt-install --domain <example.com> --email <root@example.com>
 ```
 
-:information_source: Port 80 must not be already bound by another process/server and must be accessible from the outside world for this procedure to work.
+> :information_source: Port 80 must not be already bound by another process/server and must be accessible from the outside world for this procedure to work.
 
 ### Run
 
-Just run as usual using `docker-compose up` :tada: :whale:
+Just run as usual using:
+```
+docker-compose up
+```
 
-> :bulb: Nginx logs are available using the [`docker-compose logs` command](https://docs.docker.com/compose/reference/logs/):
+:whale: :tada:
 
 ### Renew
 
@@ -96,9 +99,19 @@ docker-compose exec nginx letsencrypt-renew
 3. Build with `docker build .`
 4. If other people might benefit your changes, please submit a pull request
 
-> :bulb: The `--staging` switch can be appended to both `letsencrypt-install` and `letsencrypt-renew` commands for testing purposes: it retrieves certificates from the staging Let's Encrypt server to avoid reaching the production server rate limit. The `letsencrypt-renew` command also takes an optional `--force-renew` switch (to renew certificates regardless their expiration date).
+### Staging Let's Encrypt server
 
-> :bulb: Any valid `letsencrypt` or `certbot` switches can actually been appended to both `letsencrypt-install` and `letsencrypt-renew` commands: they will be passed as is. Check out [`letsencrypt` documentation](https://certbot.eff.org/docs/using.html) for more details.
+The `--staging` switch can be appended to both `letsencrypt-install` and `letsencrypt-renew` commands for testing purposes: it retrieves certificates from the staging Let's Encrypt server to avoid reaching the production server **rate limit**.
+
+The `letsencrypt-renew` command also takes an optional `--force-renew` switch (to renew certificates regardless their expiration date).
+
+> :bulb: Any valid `letsencrypt` / `certbot` switches can actually been appended to both `letsencrypt-install` and `letsencrypt-renew` commands: they will be passed as is. Check out [`letsencrypt` / `certbot` documentation](https://certbot.eff.org/docs/using.html) for more details.
+
+### Internal network
+
+If your Docker host is on an internal network (behind a router, not directly connected to Internet), you will need to add a NAT rule to your router configuration to redirect traffic on port 80 from the outside world to your private IP address.
+
+Since the ACME protocol requires the use of port 80, there's no way to use another port.
 
 # License
 
