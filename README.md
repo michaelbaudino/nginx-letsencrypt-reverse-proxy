@@ -28,7 +28,7 @@ docker run -p 80:80 -p 443:443 -v letsencrypt-data:/etc/letsencrypt/ -e BACKEND=
 
 Where `<backend_url>` should be replaced by your application address [in Nginx format](https://nginx.org/en/docs/http/ngx_http_upstream_module.html#server), which is pretty much an URL without protocol (_e.g._ `some.backend.com:8080`) or a Unix socket prefixed with `unix:` (_e.g._ `unix:/var/run/backend.sock`).
 
-If you'd rather start an instance running in the background, just add the `-d` switch (and eventually name your instance using the `--name` switch for easier later use).
+> :bulb: If you'd rather start an instance running in the background, just add the `-d` switch (and eventually name your instance using the `--name` switch for easier later use).
 
 > :bulb: Nginx logs are available using the [`docker logs` command](https://docs.docker.com/engine/reference/commandline/logs/):
 
