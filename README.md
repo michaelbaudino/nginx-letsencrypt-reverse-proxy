@@ -71,7 +71,7 @@ services:
 
 Before starting an instance of this container, you need to install Let's Encrypt certificates:
 ```
-docker-compose run nginx letsencrypt-install --domain <example.com> --email <root@example.com>
+docker-compose run nginx --service-ports --no-deps letsencrypt-install --domain <example.com> --email <root@example.com>
 ```
 
 > :information_source: Port 80 must not be already bound by another process/server and must be accessible from the outside world for this procedure to work.
