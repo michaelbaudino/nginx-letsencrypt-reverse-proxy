@@ -1,7 +1,13 @@
 #!/bin/bash
 
+if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+  c_reset='\e[0m'
+  c_red='\e[0;31m'
+  c_purple='\e[0;35m'
+fi
+
 if [ -z "${BACKEND}" ]; then
-  echo "Error: BACKEND env var must be defined"
+  echo -e "$c_red[Error]$c_reset Environment variable must be set: $c_purple\$BACKEND$c_reset."
   exit 1
 fi
 

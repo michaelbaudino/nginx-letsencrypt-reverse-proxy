@@ -1,5 +1,10 @@
 #!/bin/bash
 
+if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+  c_reset='\e[0m'
+  c_gray='\e[1;30m'
+fi
+
 function create_main_symlink {
   local domain=$(ls -t /etc/letsencrypt/live/ | head -1)
   ln -s /etc/letsencrypt/live/{$domain,main}
@@ -7,7 +12,7 @@ function create_main_symlink {
 
 # Checking existing certs
 if [ -L /etc/letsencrypt/live/main ]; then
-  echo -n "Some keys & certificates already exist. Overwrite? [y/N]"
+  echo -ne "Some keys & certificates already exist. Overwrite? $c_gray[y/N]$c_reset"
   read overwrite
   if [ "$overwrite" = "y" ]; then
     rm -rf /etc/letsencrypt/*
