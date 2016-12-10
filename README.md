@@ -57,15 +57,16 @@ services:
       - "443:443"
     volumes:
       - letsencrypt-data:/etc/letsencrypt/
-    depends_on:
-      - your-backend
     environment:
       BACKEND: "your-backend:8080"
+    depends_on: [your-backend]
   your-backend:
     image: ...
     ports:
       - "8080:8080"
 ```
+
+> :information_source: The `nginx` service needs to `depend_on` the backend service otherwise services boot order randomness might cause Nginx to fail to resolve the backend name.
 
 ### Setup
 
