@@ -10,20 +10,19 @@ function create_main_symlink {
   ln -s /etc/letsencrypt/live/{$domain,main}
 }
 
-# Checking existing certs
-if [ -L /etc/letsencrypt/live/main ]; then
-  echo -ne "Some keys & certificates already exist. Overwrite? $c_gray[y/N]$c_reset"
-  read overwrite
-  if [ "$overwrite" = "y" ]; then
-    rm -rf /etc/letsencrypt/*
-  else
-    exit 1
-  fi
-fi
-
+function handle_existing_certs {
+  echo -ne "Some keys & certificates already exist. Overwrite? $c_gray[y/N]$c_reset "
+  read -n1 overwrite
+  case ${overwrite} in
+    y|Y) rm -rf /etc/letsencrypt/* ;;
+    n|N) exit ;;
+    *) echo ; handle_existing_certs ;;
+  esac
+}
 
 # Main
 
+[[ -L /etc/letsencrypt/live/main ]] && handle_existing_certs
 echo "Requesting certs from Let's Encrypt..."
 letsencrypt certonly --standalone --non-interactive --agree-tos --standalone-supported-challenges http-01 $@
 create_main_symlink
