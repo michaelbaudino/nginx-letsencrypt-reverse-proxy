@@ -32,6 +32,13 @@ Where `<backend_url>` should be replaced by your application address [in Nginx f
 
 > :bulb: Nginx logs are available using the [`docker logs` command](https://docs.docker.com/engine/reference/commandline/logs/).
 
+#### Optionals
+Using enverionment variables you can set optional settings. Default values set below.
+
+```bash
+HSTS=true # set to false to disable Strict-Transport-Security.
+```
+
 ### Renew
 
 To renew Let's Encrypt certificates, run (the container must be already running):
@@ -59,6 +66,7 @@ services:
       - letsencrypt-data:/etc/letsencrypt/
     environment:
       BACKEND: "your-backend:8080"
+      HSTS: true
     depends_on: [your-backend]
   your-backend:
     image: ...
