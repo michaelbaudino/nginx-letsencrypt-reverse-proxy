@@ -32,11 +32,13 @@ Where `<backend_url>` should be replaced by your application address [in Nginx f
 
 > :bulb: Nginx logs are available using the [`docker logs` command](https://docs.docker.com/engine/reference/commandline/logs/).
 
-#### Optionals
-Using enverionment variables you can set optional settings. Default values set below.
+#### Options
+
+You can set optional settings using the following environment variables:
 
 ```bash
-HSTS=true # set to false to disable Strict-Transport-Security.
+# Disable HTTPS Strict-Transport-Security (default: true)
+HSTS=false
 ```
 
 ### Renew
