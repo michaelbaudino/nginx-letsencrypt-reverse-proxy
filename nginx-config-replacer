@@ -12,4 +12,8 @@ else
   echo -e "$c_yellow[Warning]$c_reset Environment variable not set: $c_purple\$BACKEND$c_reset. Nginx will likely fail to start."
 fi
 
+if [ "${HSTS}" = "false" ]; then
+  sed -e '/.*Strict-Transport-Security/ s/^#*/#/' -i /etc/nginx/sites-available/*
+fi
+
 exec "$@"

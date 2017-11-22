@@ -29,6 +29,8 @@ COPY bin/letsencrypt-* /usr/local/bin/
 # expose HTTP(S) ports
 EXPOSE 80 443
 
+ENV HSTS true
+
 # entrypoint that takes care of replacing placeholders in nginx
 # configuration files with values from environment variables
 # (works with both docker-compose `up` and `run` commands)
